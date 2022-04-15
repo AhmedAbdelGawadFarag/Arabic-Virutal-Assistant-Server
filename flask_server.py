@@ -1,3 +1,4 @@
+import flask
 from flask import Flask, request, make_response
 from werkzeug.utils import secure_filename
 from speech_to_text import get_text
