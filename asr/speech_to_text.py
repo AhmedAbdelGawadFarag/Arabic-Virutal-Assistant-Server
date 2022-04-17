@@ -4,6 +4,12 @@ from google.cloud.speech import RecognitionAudio
 import os
 
 config = dict(language_code="ar-EG")
+
+
+#config = speech.types.RecognitionConfig(
+ #   language_code='ar-EG'
+#),
+
 os.environ['GOOGLE_APPLICATION_CREDENTIALS'] = './asr-api-key.json'
 
 
@@ -17,7 +23,7 @@ def get_text(filename):
             return print_sentences(response)
 
     except Exception as e:
-        return None
+        return print(e)
 
 
 def print_sentences(response):

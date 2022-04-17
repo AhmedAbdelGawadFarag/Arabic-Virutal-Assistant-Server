@@ -127,3 +127,9 @@ dmypy.json
 
 # Pyre type checker
 .pyre/
+
+#ignore wav file
+*.wav
+*.flac
+
+/trained_model/intent-model
