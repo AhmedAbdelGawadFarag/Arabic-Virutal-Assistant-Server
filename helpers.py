@@ -51,5 +51,3 @@ def handleUpload(classifier):
             'ContentType': 'application/json'}
 
 
-def logException(logger, e):
-    logger.critical("Exception: " + str(e))

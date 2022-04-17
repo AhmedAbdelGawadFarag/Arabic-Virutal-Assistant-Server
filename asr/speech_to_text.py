@@ -1,6 +1,6 @@
 from google.cloud import speech_v1 as speech
 from google.cloud.speech import RecognitionAudio
-
+from colored_exception import logException
 import os
 
 config = dict(language_code="ar-EG")
@@ -22,7 +22,8 @@ def get_text(filename):
             return print_sentences(response)
 
     except Exception as e:
-        return print(e)
+        logException(e)
+        return None
 
 
 def print_sentences(response):

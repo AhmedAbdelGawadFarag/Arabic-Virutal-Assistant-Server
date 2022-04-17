@@ -1,11 +1,9 @@
 from flask import Flask, request, make_response
 import json
 import trained_model.intent_classifier as intent_classifier
-from helpers import handleUpload, logException
-import coloredlogs, logging
+from helpers import handleUpload
+from colored_exception import logException
 
-logger = logging.getLogger("logger")
-coloredlogs.install(level='DEBUG', logger=logger)
 
 app = Flask(__name__)
 
@@ -23,5 +21,5 @@ def upload_file():
     try:
         return handleUpload(classifier)
     except Exception as e:
-        logException(logger, e)
+        logException(e)
         return json.dumps({"exception": str(e)})

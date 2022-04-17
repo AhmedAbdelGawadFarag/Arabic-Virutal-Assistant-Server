@@ -1,7 +1,7 @@
 import json
 
 import requests
-import asr.config as config
+import config as config
 
 
 def process(text, intent):
