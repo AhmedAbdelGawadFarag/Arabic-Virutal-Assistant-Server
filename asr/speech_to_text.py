@@ -5,12 +5,11 @@ import os
 
 config = dict(language_code="ar-EG")
 
+# config = speech.types.RecognitionConfig(
+#   language_code='ar-EG'
+# ),
 
-#config = speech.types.RecognitionConfig(
- #   language_code='ar-EG'
-#),
-
-os.environ['GOOGLE_APPLICATION_CREDENTIALS'] = './asr-api-key.json'
+os.environ['GOOGLE_APPLICATION_CREDENTIALS'] = './asr/asr-api-key.json'
 
 
 def get_text(filename):
