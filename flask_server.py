@@ -4,8 +4,9 @@ import trained_model.intent_classifier as intent_classifier
 from helpers import handleUpload
 from colored_exception import logException
 
-
 app = Flask(__name__)
+
+app.run(host='0.0.0.0')
 
 # load intent classification model
 classifier = intent_classifier.classifier()
@@ -23,3 +24,8 @@ def upload_file():
     except Exception as e:
         logException(e)
         return json.dumps({"exception": str(e)})
+
+
+@app.route('/', methods=['GET'])
+def sayHi():
+    return json.dumps({"data": "hello world"})
