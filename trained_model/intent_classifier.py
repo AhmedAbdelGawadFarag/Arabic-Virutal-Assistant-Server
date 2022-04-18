@@ -10,8 +10,9 @@ class classifier:
     def __init__(self):
         try:
             #model_path = "./trained_model/intent-model"
-            #/home/ahmed/Desktop/ArabicIntentClassification/Arabic-Virutal-Assistant-Server/trained_model
+            #/home/ahmed/Desktop/ArabicIntentClassification/Arabic-Virutal-Assistant-Server/trained_model/intent-model
             model_path = os.getenv('intent_model_path')
+            print("PAAAATH")
             print(model_path)
             self.MAX_LENGHT = 32
             self.classes = ['call contact', 'search', 'alarm', 'weather']

@@ -33,7 +33,7 @@ def sayHi():
 
 @app.route('/intent_test', methods=['POST'])
 def testIntent():
-    return json.dumps({"data": classifier.predict('قم بالاتصال باحمد.')})
+    return json.dumps({"intent": classifier.predict(request.values.get('text'))})
 
 
 if __name__ == '__main__':
