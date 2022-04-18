@@ -31,6 +31,11 @@ def sayHi():
     return json.dumps({"data": "hello world"})
 
 
+@app.route('/intent_test', methods=['POST'])
+def testIntent():
+    return json.dumps({"data": classifier.predict('قم بالاتصال باحمد.')})
+
+
 if __name__ == '__main__':
     print("YES")
     app.run(host='0.0.0.0', port=5000)
