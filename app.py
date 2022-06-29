@@ -1,10 +1,10 @@
 import traceback
-
-from flask import Flask, request, make_response
+from flask import Flask, request, send_file
 import json
 import trained_model.intent_classifier as intent_classifier
 from helpers import handleUpload
 from colored_exception import logException
+from asr.text_to_speech import generate_voice_file
 
 app = Flask(__name__)
 
@@ -34,6 +34,16 @@ def sayHi():
 @app.route('/intent_test', methods=['POST'])
 def testIntent():
     return json.dumps({"intent": classifier.predict(request.values.get('text'))})
+
+
+@app.route('/tts', methods=['POST'])
+def text_to_speech():
+    try:
+        generate_voice_file(request.get_json()['text'])
+        return send_file('./tts.mp3', as_attachment=True)
+    except Exception as e:
+        logException(e)
+        return json.dumps({'exception': str(e)})
 
 
 if __name__ == '__main__':

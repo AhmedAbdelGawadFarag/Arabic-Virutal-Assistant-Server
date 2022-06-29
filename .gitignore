@@ -131,5 +131,6 @@ dmypy.json
 #ignore wav file
 *.wav
 *.flac
+*.mp3
 
 /trained_model/intent-model
