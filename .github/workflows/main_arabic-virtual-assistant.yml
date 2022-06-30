@@ -60,4 +60,4 @@ jobs:
         with:
           app-name: 'arabic-virtual-assistant'
           slot-name: 'Production'
-          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_68BCF0FBC6454147BB124176EC0A9577 }}
+          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_6E956E9B14CE463C92B1C4FD0E059313 }}
