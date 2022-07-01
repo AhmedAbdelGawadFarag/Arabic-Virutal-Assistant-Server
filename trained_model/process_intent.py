@@ -1,13 +1,15 @@
 import json
+import os
 
 import requests
-import config as config
 
 
 def process(text, intent):
     if intent == 'call contact':
-        r = requests.post(config.ip_address, json={"data": text})
+        print(os.getenv('ner_server_ip'))
+        r = requests.post(os.getenv('ner_server_ip')+'/callContact', json={"text": text})
         print("response is")
+        print(r.text)
         r = json.loads(r.text)
         print(r['data'])
         return r['data']
