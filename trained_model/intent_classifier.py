@@ -15,7 +15,9 @@ class classifier:
             print("PAAAATH")
             print(model_path)
             self.MAX_LENGHT = 32
-            self.classes = ['call contact', 'search', 'alarm', 'weather']
+            self.classes = ['Question', 'Search', 'New Calendar', 'Read Calendar', 'Send Emails', 'Read Emails', 
+            'Call contact', 'new contact', 'weather', 'open app', 'Read notification', 'Translation', 
+            'Rejection', 'Acceptance', 'greetings', 'alarm']
 
             self.model = keras.models.load_model(model_path, custom_objects={"TFBertModel": TFBertModel})
             self.tokenizer = BertTokenizer.from_pretrained("aubmindlab/bert-base-arabertv02-twitter")
