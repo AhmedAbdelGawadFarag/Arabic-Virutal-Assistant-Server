@@ -43,11 +43,12 @@ def handleUpload(classifier):
     print("yeeeeeeee")
     print(text)
     intent = classifier.predict(text)
+    print(intent)
     data = process_intent.process(text, intent)
-    if intent == 'call contact':
+    if intent == 'Call contact':
         return json.dumps({'intent': intent, 'data': {"displayName": data}}), 200, {'ContentType': 'application/json'}
-    elif intent == 'search':
+    elif intent == 'Search':
         return json.dumps({'intent': intent, 'data': {"webSearchQuery": data}}), 200, {
             'ContentType': 'application/json'}
-
-
+    else:
+        return json.dumps({'error': 'unknown intent'})
