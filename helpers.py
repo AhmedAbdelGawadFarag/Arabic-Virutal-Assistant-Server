@@ -11,9 +11,11 @@ from trained_model import intents
 
 def getAudioFileFromRequest():
     if request.files.get('file') != None:
+
         f = request.files['file']
         f.save(secure_filename('output.flac'))
     elif request.get_json().get('audio') != None:
+
         encode_string = request.get_json()['audio']
 
         wav_file = open("test.wav", "wb")
@@ -25,7 +27,9 @@ def getAudioFileFromRequest():
 
 
 def handleUpload(classifier):
-    if request.get_json().get("text") != None:  # request body has text not audio
+    print(request.files)
+
+    if request.data.decode('utf-8') != '':  # request body has text not audio
         text = request.get_json()["text"]
         intent = classifier.predict(text)
         return handle_intent(intent, text)
