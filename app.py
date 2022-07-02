@@ -33,7 +33,11 @@ def sayHi():
 
 @app.route('/intent_test', methods=['POST'])
 def testIntent():
-    return json.dumps({"intent": classifier.predict(request.values.get('text'))})
+    try:
+        return json.dumps({"intent": classifier.predict(request.json.get('text'))})
+    except Exception as e:
+        logException(e)
+        return json.dumps({"exception": str(e)})
 
 
 @app.route('/tts', methods=['POST'])
