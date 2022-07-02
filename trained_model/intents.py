@@ -86,7 +86,7 @@ def new_contact(text):
     print(r)
     print(r['data'])
 
-    return json.dumps({'intent': "call contact", "displayName": r['data']}), 200, {'ContentType': 'application/json'}
+    return json.dumps({'intent': "add contact", "displayName": r['data']}), 200, {'ContentType': 'application/json'}
 
 
 def new_alarm(text):
