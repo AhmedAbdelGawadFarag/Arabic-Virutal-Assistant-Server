@@ -36,6 +36,7 @@ def testIntent():
     try:
         return json.dumps({"intent": classifier.predict(request.json.get('text'))})
     except Exception as e:
+        print(traceback.format_exc())
         logException(e)
         return json.dumps({"exception": str(e)})
 

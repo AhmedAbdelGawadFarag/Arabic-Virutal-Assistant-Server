@@ -3,6 +3,8 @@ import os
 
 import requests
 
+from translation import translation
+
 ner_ip = os.getenv('ner_server_ip')
 
 
@@ -141,8 +143,12 @@ def open_apps():
 
 
 def translate(text):
+    lan, sentence = translation.process(text)
+
     return json.dumps({
-        "intent": "translate"
+        "intent": 'translate',
+        "targetLanguage": lan,
+        "sentence": sentence
     })
 
 

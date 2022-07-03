@@ -49,3 +49,7 @@ google-cloud-speech==2.13.1
 google-pasta==0.2.0
 googleapis-common-protos==1.56.0
 google-cloud-texttospeech==2.11.1
+Tashaphyne==0.3.6
+farasapy==0.0.14
+PyArabic==0.6.14
+emoji==1.7.0
