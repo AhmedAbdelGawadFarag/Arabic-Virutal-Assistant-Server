@@ -118,3 +118,37 @@ def read_notifications():
         "intent": 'read notification'
     }
     )
+
+
+def read_emails():
+    return json.dumps({
+        "intent": "read email"
+    })
+
+
+def send_emails():
+    return json.dumps(
+        {
+            "intent": "send email"
+        }
+    )
+
+
+def open_apps():
+    return json.dumps({
+        "intent": "open app",
+    })
+
+
+def translate(text):
+    return json.dumps({
+        "intent": "translate"
+    })
+
+
+def greetings():
+    return json.dumps(
+        {
+            "intent": "greetings"
+        }
+    )
