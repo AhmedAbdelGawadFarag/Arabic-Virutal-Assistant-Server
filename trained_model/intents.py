@@ -154,7 +154,8 @@ def open_apps(text):
 
 def translate(text):
     lan, sentence = translation.process(text)
-
+    print(len)
+    print(sentence)
     return json.dumps({
         "intent": 'translate',
         "targetLanguage": lan,

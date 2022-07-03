@@ -26,10 +26,15 @@ def getAudioFileFromRequest():
         song.export("output.flac", format="flac")
 
 
+def stt():
+    getAudioFileFromRequest()
+
+    text = get_text('output.flac')  # get text from the sound file
+
+    return text
+
+
 def handleUpload(classifier):
-
-
-
     if request.data.decode('utf-8') != '' and request.get_json().get('text') != None:  # request body has text not audio
         print("SDFDSFSF")
         text = request.get_json()["text"]

@@ -2,7 +2,7 @@ import traceback
 from flask import Flask, request, send_file
 import json
 import trained_model.intent_classifier as intent_classifier
-from helpers import handleUpload
+from helpers import handleUpload, stt
 from colored_exception import logException
 from asr.text_to_speech import generate_voice_file
 
@@ -46,6 +46,16 @@ def text_to_speech():
     try:
         generate_voice_file(request.get_json()['text'])
         return send_file('./tts.mp3', as_attachment=True)
+    except Exception as e:
+        logException(e)
+        return json.dumps({'exception': str(e)})
+
+
+@app.route('/stt', methods=['POST'])
+def speech_to_text():
+    try:
+        text = stt()
+        return json.dumps({'userSTT': text})
     except Exception as e:
         logException(e)
         return json.dumps({'exception': str(e)})
