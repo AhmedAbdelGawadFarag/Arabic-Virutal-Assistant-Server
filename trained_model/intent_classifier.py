@@ -14,12 +14,12 @@ class classifier:
             # model_path = "./trained_model/intent-model"
             # /home/ahmed/Desktop/ArabicIntentClassification/Arabic-Virutal-Assistant-Server/trained_model/intent-model
 
-            print("da5al")
+
 
             self.arabert_prep = ArabertPreprocessor(model_name='aubmindlab/bert-base-arabertv02-twitter')
 
             model_path = os.getenv('intent_model_path')
-            print("PAAAATH")
+
             print(model_path)
             self.MAX_LENGHT = 32
 
