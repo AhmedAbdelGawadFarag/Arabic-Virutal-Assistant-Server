@@ -63,16 +63,16 @@ def handle_intent(intent, text):
     elif intent == 'alarm':
         return intents.new_alarm(text)
     elif intent == 'Read notification':
-        return intents.read_notifications()
+        return intents.read_notifications(text)
     elif intent == 'Read Emails':
-        return intents.read_emails()
+        return intents.read_emails(text)
     elif intent == 'Send Emails':
-        return intents.send_emails()
+        return intents.send_emails(text)
     elif intent == 'open app':
-        return intents.open_apps()
+        return intents.open_apps(text)
     elif intent == 'Translation':
         return intents.translate(text)
     elif intent == 'greetings':
-        return intents.greetings()
+        return intents.greetings(text)
     else:
         return json.dumps({'error': 'unknown intent'})
