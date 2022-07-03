@@ -15,7 +15,8 @@ def call_contact(text):
     r = json.loads(r.text)
     print(r['data'])
 
-    return json.dumps({'intent': "call contact", "displayName": r['data']}), 200, {'ContentType': 'application/json'}
+    return json.dumps({'intent': "call contact", "displayName": r['data'], "userSTT": text}), 200, {
+        'ContentType': 'application/json'}
 
 
 def new_calendar(text):
@@ -31,7 +32,8 @@ def new_calendar(text):
     mp = {
         'intent': 'new calendar',
         'startDate': startDate,
-        'endDate': startDate
+        'endDate': startDate,
+        "userSTT": text
     }
 
     print(r)
@@ -54,7 +56,8 @@ def read_calendar(text):
     return json.dumps({
         'intent': 'read calendar',
         'startDate': startDate,
-        'endDate': startDate
+        'endDate': startDate,
+        "userSTT": text
     })
 
 
@@ -77,7 +80,8 @@ def search(text):
 
     return json.dumps({
         "intent": "web search",
-        "searchQuery": search_result
+        "searchQuery": search_result,
+        "userSTT": text
     })
 
 
@@ -88,7 +92,8 @@ def new_contact(text):
     print(r)
     print(r['data'])
 
-    return json.dumps({'intent': "add contact", "displayName": r['data']}), 200, {'ContentType': 'application/json'}
+    return json.dumps({'intent': "add contact", "displayName": r['data'], "userSTT": text}), 200, {
+        'ContentType': 'application/json'}
 
 
 def new_alarm(text):
@@ -107,7 +112,8 @@ def new_alarm(text):
         'minute': int(minute),
         'day': r['day'],
         'month': r['month'],
-        'year': r['year']
+        'year': r['year'],
+        "userSTT": text
     }
 
     print(mp)
@@ -115,30 +121,34 @@ def new_alarm(text):
     return json.dumps(mp)
 
 
-def read_notifications():
+def read_notifications(text):
     return json.dumps({
         "intent": 'read notification'
+        , "userSTT": text
     }
     )
 
 
-def read_emails():
+def read_emails(text):
     return json.dumps({
         "intent": "read email"
+        , "userSTT": text
     })
 
 
-def send_emails():
+def send_emails(text):
     return json.dumps(
         {
             "intent": "send email"
+            , "userSTT": text
         }
     )
 
 
-def open_apps():
+def open_apps(text):
     return json.dumps({
-        "intent": "open app",
+        "intent": "open app"
+        , "userSTT": text
     })
 
 
@@ -149,12 +159,14 @@ def translate(text):
         "intent": 'translate',
         "targetLanguage": lan,
         "sentence": sentence
+        , "userSTT": text
     })
 
 
-def greetings():
+def greetings(text):
     return json.dumps(
         {
             "intent": "greetings"
+            , "userSTT": text
         }
     )
