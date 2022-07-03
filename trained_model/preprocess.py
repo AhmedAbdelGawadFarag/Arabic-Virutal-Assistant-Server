@@ -224,7 +224,6 @@ class ArabertPreprocessor:
         else:
             self.map_hindi_numbers_to_arabic = map_hindi_numbers_to_arabic
 
-        print("5ls")
 
     def preprocess(self, text: str) -> str:
         """
